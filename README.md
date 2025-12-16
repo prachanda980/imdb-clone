@@ -25,7 +25,7 @@ A scalable, high-performance RESTful API for a movie database platform. Built wi
 
 1.  **Clone the repo**
     ```bash
-    git clone [https://github.com/yourusername/imdb-clone-api.git](https://github.com/yourusername/imdb-clone-api.git)
+    git clone [https://github.com/prachanda980/imdb-clone](https://github.com/prachanda980/imdb-clone.git)
     cd imdb-clone-api
     ```
 
