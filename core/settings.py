@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # Third-party App
     'apps.accounts.apps.AccountsConfig',
-    # 'apps.movies.apps.MoviesConfig',
+    'apps.movies.apps.MoviesConfig',
 ]
 
 
