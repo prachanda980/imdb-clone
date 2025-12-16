@@ -1,0 +1,87 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+
+# =========================
+# Virtual Environments
+# =========================
+venv/
+.env/
+.env.*
+.venv/
+ENV/
+env/
+virtualenv/
+
+# =========================
+# Django
+# =========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# =========================
+# Django migrations (optional)
+# Comment this out if you want to track migrations
+# =========================
+# */migrations/
+# */migrations/__pycache__/
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.local
+.env.dev
+.env.prod
+
+# =========================
+# Celery
+# =========================
+celerybeat-schedule
+celerybeat.pid
+
+# =========================
+# Redis
+# =========================
+dump.rdb
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Test / Coverage
+# =========================
+htmlcov/
+.coverage
+.coverage.*
+.tox/
+.pytest_cache/
+
+# =========================
+# Node (if frontend later)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
