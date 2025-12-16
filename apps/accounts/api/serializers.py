@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from apps.accounts.models import CustomUser
-
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
@@ -28,3 +28,19 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    """
+    We extend the default JWT serializer to add 'user' details 
+    into the response JSON.
+    """
+    def validate(self, attrs):
+        # This generates the 'access' and 'refresh' tokens
+        data = super().validate(attrs)
+        
+        # Now we add our custom data
+        data['user'] = {
+            'email': self.user.email,
+            'name': self.user.name,
+            
+        }
+        return data
