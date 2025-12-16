@@ -34,7 +34,7 @@ class Movie(models.Model):
     genres = models.ManyToManyField(Genre, related_name='movies')
 
     # Performance / Denormalized Fields
-    average_rating = models.FloatField(default=0.0, validators=[MinValueValidator(1.0), MaxValueValidator(5.0)])
+    average_rating = models.FloatField(default=0.0, )
     total_review_count = models.PositiveIntegerField(default=0)
 
     created_at = models.DateTimeField(auto_now_add=True)
