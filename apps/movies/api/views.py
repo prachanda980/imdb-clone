@@ -48,7 +48,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     search_fields = ["title", "description", "crew__person__name"]
     ordering_fields = ["average_rating", "release_date", "total_review_count"]
 
-    # ---------- LIST (CACHE) ----------
+    # LIST (CACHE) 
     def list(self, request, *args, **kwargs):
         # If query params exist → skip cache
         if request.query_params:

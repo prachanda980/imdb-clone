@@ -138,6 +138,14 @@ CACHES = {
     }
 }
 
+# Celery Configuration
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0' # Use Redis as the message broker
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+
+# Email Backend (Prints to console for development)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 # Cache time to live (TTL) in seconds
 CACHE_TTL = 60 * 15  # 15 minutes
 # Internationalization
