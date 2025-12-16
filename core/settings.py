@@ -12,11 +12,12 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 import sys
+from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Add 'apps' to the system path so Django can find them
-sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))  
+# sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))  
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -33,6 +34,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django Admin Theme
+    "jazzmin",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,9 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework', # Third-party App
-    'apps.accounts',  # Our App
-    'apps.movies',    # Our App
+    'apps.accounts.apps.AccountsConfig',
+    # 'apps.movies.apps.MoviesConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -105,6 +109,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', 
+    ),
+}
+
+# JWT Settings (Customizable)
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),    #
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
