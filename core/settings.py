@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', # Third-party App
+    'apps.accounts',  # Our App
+    'apps.movies',    # Our App
 ]
 
 MIDDLEWARE = [
@@ -70,6 +73,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+# Custom user model
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
