@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'django_filters',
     'rest_framework', 
     'apps.accounts.apps.AccountsConfig',
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -150,6 +152,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 CACHE_TTL = 60 * 15  # 15 minutes
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
+
+# CORS CONFIGURATION 
+# If True, the whitelist is ignored and ALL origins can access the API.
+# This is what allows "anybody" to consume it.
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Optional: If you want to be more specific later, you can use:
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",
+#     "http://127.0.0.1:3000",
+# ]
 
 LANGUAGE_CODE = 'en-us'
 
