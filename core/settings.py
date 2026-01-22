@@ -155,15 +155,26 @@ SIMPLE_JWT = {
 }
 
 # Redis Cache Configuration 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.getenv("REDIS_URL", "redis://127.0.0.1:6379/1"),
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+# Use dummy cache if Redis is not available (for deployments without Redis)
+REDIS_URL = os.getenv("REDIS_URL", None)
+
+if REDIS_URL:
+    CACHES = {
+        "default": {
+            "BACKEND": "django_redis.cache.RedisCache",
+            "LOCATION": REDIS_URL,
+            "OPTIONS": {
+                "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            }
         }
     }
-}
+else:
+    # Fallback to dummy cache (no caching)
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        }
+    }
 
 # Celery Configuration
 CELERY_BROKER_URL = os.getenv("REDIS_URL", "redis://127.0.0.1:6379/0") # Use Redis as the message broker
