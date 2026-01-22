@@ -78,6 +78,15 @@ A scalable, high-performance RESTful API for a movie database platform. Built wi
 | **POST** | `/api/v1/movies/` | Add new movie (Admin only) |
 | **POST** | `/api/v1/movies/1/reviews/` | Add review to movie ID 1 |
 | **POST** | `/api/v1/movies/1/crew/` | Link actor/director to movie |
+    
+## 📚 API Documentation
+
+Interactive API documentation is available via Swagger UI.
+
+![Swagger UI](docs/img/swagger.png)
+
+*   **Swagger UI:** `/api/schema/swagger-ui/`
+*   **ReDoc:** `/api/schema/redoc/`
 
 ## 🧪 Testing
 
