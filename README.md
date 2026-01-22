@@ -41,12 +41,28 @@ A scalable, high-performance RESTful API for a movie database. Built with Django
     pip install -r requirements.txt
     ```
 
-4.  **Configuration**
-    Copy the example env file and update if necessary:
-    ```bash
-    cp .env.example .env
-    ```
-    *Ensure Redis is running locally on default port 6379.*
+## 🚀 Deployment (Render.com)
+
+This project is configured for easy deployment on Render using Infrastructure as Code (IaC).
+
+1.  **Fork/Clone** this repository to your GitHub.
+2.  **Sign up/Login** to [Render](https://render.com).
+3.  **New Blueprint Instance**:
+    *   Click "New" -> "Blueprint".
+    *   Connect your repository.
+    *   Render will read `render.yaml` and automatically provision:
+        *   **PostgreSQL Database** (Free Plan)
+        *   **Redis** (Free Plan)
+        *   **Web Service** (Python/Gunicorn)
+4.  **Environment Variables**:
+    *   The Blueprint handles most variables (`DATABASE_URL`, `REDIS_URL`, `SECRET_KEY`).
+    *   `ALLOWED_HOSTS` is set to `*` by default for convenience but should be secured in production.
+    *   `DEBUG` is set to `False`.
+
+**Manual Deployment Notes:**
+*   **Build Command:** `./build.sh`
+*   **Start Command:** `gunicorn core.wsgi:application`
+*   **Python Version:** `3.12.0`
 
 5.  **Database & Admin**
     ```bash
