@@ -41,6 +41,13 @@ A scalable, high-performance RESTful API for a movie database. Built with Django
     pip install -r requirements.txt
     ```
 
+4.  **Configuration**
+    Copy the example env file and update if necessary:
+    ```bash
+    cp .env.example .env
+    ```
+    *Ensure Redis is running locally on default port 6379.*
+
 ## 🚀 Deployment (Render.com)
 
 This project is configured for easy deployment on Render using Infrastructure as Code (IaC).
