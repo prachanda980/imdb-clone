@@ -94,12 +94,18 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# Debugging: Print config to logs
+print(f"DEBUG: DATABASE_URL present: {'DATABASE_URL' in os.environ}")
+print(f"DEBUG: DATABASE_URL value: {os.environ.get('DATABASE_URL', 'NOT_SET')[:10]}...") # Print first 10 chars only
+
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
         conn_max_age=600
     )
 }
+
+print(f"DEBUG: Configured Database Engine: {DATABASES['default']['ENGINE']}")
 
 
 # Password validation
